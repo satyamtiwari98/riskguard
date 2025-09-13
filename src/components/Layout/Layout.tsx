@@ -1,12 +1,10 @@
-// components/Layout.jsx
 import { Outlet, useLocation } from "react-router-dom";
 import Header from "../Header/Header";
+import InactivityHandler from "../Utils/InactivityHandler";
 import Footer from "../Footer/Footer";
 
-const Layout = () => {
+const Layout: React.FC = () => {
   const location = useLocation();
-
-  // Pages where Header & Footer should be hidden
   const hideLayoutPaths = ["/login", "/logout", "*"];
 
   const shouldHideLayout = hideLayoutPaths.includes(location.pathname);
@@ -14,7 +12,8 @@ const Layout = () => {
   return (
     <>
       {!shouldHideLayout && <Header />}
-      <main className="min-h-screen">
+      {!shouldHideLayout && <InactivityHandler />}
+      <main>
         <Outlet />
       </main>
       {!shouldHideLayout && <Footer />}
