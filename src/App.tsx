@@ -8,7 +8,7 @@ import Home from "./components/Home/Home.tsx";
 import About from "./components/About/About.tsx";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute.tsx";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="p-4 w-full">
       <Routes>
@@ -37,6 +37,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;
